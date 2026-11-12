@@ -53,7 +53,10 @@ def phan_tich_loi_khuyen(temperature_str, sky):
 def chay_tu_dong_khi_tat_may():
     city = "Long Xuyen"
     sender_email = "chivilu01@gmail.com"
-    receiver_email = "vi_dth245951@student.agu.edu.vn"
+    danh_sach_nguoi_nhan = [
+    "vi_dth245951@student.agu.edu.vn",
+    "vy_dth245956@student.agu.edu.vn"
+    ]
     
     # Lấy Mật khẩu ứng dụng 16 ký tự từ két bảo mật (Secrets) của GitHub
     app_password = os.environ.get("GMAIL_PASS", "").replace(" ", "").strip()
@@ -75,12 +78,12 @@ def chay_tu_dong_khi_tat_may():
     msg = MIMEText(body, 'plain', 'utf-8')
     msg['Subject'] = Header(subject, 'utf-8')
     msg['From'] = sender_email
-    msg['To'] = receiver_email
+    msg['To'] = ", ".join(danh_sach_nguoi_nhan)
 
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context, timeout=20) as server:
         server.login(sender_email, app_password)
-        server.sendmail(sender_email, [receiver_email], msg.as_string())
+        server.sendmail(sender_email, danh_sach_nguoi_nhan, msg.as_string())
         
     print(f"Đã gửi mail thời tiết {city} thành công!")
 
