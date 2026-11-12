@@ -1,0 +1,27 @@
+name: Hen Gio Gui Mail Thoi Tiet (Khi Tat May)
+
+on:
+  schedule:
+    # Chạy tự động lúc 06:00 sáng mỗi ngày theo giờ Việt Nam (tức 23:00 giờ quốc tế UTC)
+    - cron: '0 23 * * *'
+  workflow_dispatch: # Tạo nút bấm chạy thử ngay lập tức để Demo cho Giảng viên
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lay code tu kho chua
+        uses: actions/checkout@v4
+
+      - name: Cai dat Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cai thu vien requests va beautifulsoup4
+        run: pip install requests beautifulsoup4
+
+      - name: Chay file Python gui Email
+        env:
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
+        run: python cloud_reminder.py
