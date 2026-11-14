@@ -24,7 +24,7 @@ def lay_du_lieu_thoi_tiet(city):
     except Exception:
         pass
 
-    backup_url = f"https://wttr.in/{city.replace(' ', '+')}?format=%t|%C"
+    backup_url = f"https://wttr.in/{city.replace(' ', '+')}?format=%t|%C&m"
     backup_html = requests.get(backup_url, timeout=10).text
     soup_backup = BeautifulSoup(backup_html, 'html.parser')
     data = soup_backup.text.strip().split('|')
@@ -44,7 +44,7 @@ def phan_tich_loi_khuyen(temperature_str, sky):
 
     if co_mua_hoac_am_u:
         return "CẢNH BÁO MƯA/ÂM U: Hãy nhớ mang theo DÙ (Ô) hoặc ÁO MƯA khi ra ngoài nhé!"
-    elif so_nhiet_do >= 33:
+    elif so_nhiet_do >= 35:
         return "CẢNH BÁO NẮNG NÓNG: Nhiệt độ khá cao, hãy mang theo DÙ che nắng, áo khoác và uống nhiều nước!"
     else:
         return "Thời tiết hôm nay rất đẹp và mát mẻ, thuận lợi cho việc di chuyển."
