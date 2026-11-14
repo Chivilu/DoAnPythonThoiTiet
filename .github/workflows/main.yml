@@ -3,7 +3,7 @@ name: Hen Gio Gui Mail Thoi Tiet (Khi Tat May)
 on:
   schedule:
     # Chạy tự động lúc 06:00 sáng mỗi ngày theo giờ Việt Nam (tức 23:00 giờ quốc tế UTC)
-    - cron: '00 06 * * *'
+    - cron: '00 06 * * *'  
   workflow_dispatch: # Tạo nút bấm chạy thử ngay lập tức để Demo cho Giảng viên
 
 jobs:
