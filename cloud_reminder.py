@@ -64,15 +64,14 @@ def chay_tu_dong_khi_tat_may():
     temperature, sky = lay_du_lieu_thoi_tiet(city)
     loi_khuyen = phan_tich_loi_khuyen(temperature, sky)
 
-    subject = f"[Thời Tiết {city}] Nhắc nhở tự động mỗi sáng (Cloud)"
+    subject = f"[Chị Phiến nè cưng(⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤, chị gửi thời tiết {city}] cho cưng nè!"
     body = (
-        f"Xin chào,\n\n"
-        f"Hệ thống chạy ngầm trên đám mây (hoạt động cả khi tắt máy tính) xin thông báo:\n"
-        f"- Khu vực: {city}\n"
+        f"Chào cưng,\n\n"
+        f"Hệ thống gửi thông tin thời tiết của chị nè\n"
         f"- Nhiệt độ: {temperature}\n"
         f"- Trạng thái bầu trời: {sky}\n"
         f"- Lời khuyên: {loi_khuyen}\n\n"
-        f"Gửi tự động từ GitHub Actions."
+        f"Gửi tự động từ GitHub Actions꒰⁠⑅⁠ᵕ⁠༚⁠ᵕ⁠꒱⁠˖⁠♡."
     )
 
     msg = MIMEText(body, 'plain', 'utf-8')
